@@ -69,7 +69,7 @@ end
 
 I haven't further investigated, but apparently there is something in the 'templates' package that is attempting to reopen a stream that has already been compressed.  This seems strange since I believe the concept behind compress is to perform compression *after* the block has been executed.
 
-To resolve the issue so I can view the manual, I simply turned off compression:
+To resolve the issue so I can generate and view the manual, I simply turned off compression:
 
 ```ruby
 Prawn::Example.generate("manual.pdf",
