@@ -6,4 +6,4 @@ Rails is one of the best web application frameworks I have ever used.  It accomm
 Here are some notes associated with gem libraries that I have used with Rails
 
 
-* [Prawn](notes/tree/master/rails/prawn): pdf generation; no, it doesn't convert from HTML to PDF, but it can run easily on your webserver without extra application installations on the server.  This means I can use it on Heroku.
+* [Prawn](/notes/tree/master/rails/prawn): pdf generation; no, it doesn't convert from HTML to PDF, but it can run easily on your webserver without extra application installations on the server.  This means I can use it on Heroku.
