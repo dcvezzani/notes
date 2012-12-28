@@ -41,12 +41,25 @@ Encoding::UndefinedConversionError: "\xFF" from ASCII-8BIT to UTF-8
 
 Thanks to [knut](http://stackoverflow.com/users/676874/knut) and the [related post](http://stackoverflow.com/questions/13003287/encodingundefinedconversionerror), I was able to make the necessary change to process the pdf with the desired encoding:
 
+### from
+
+```ruby
+class HelloReport < Prawn::Document
+  def to_pdf
+    text "Hello world"
+    render
+  end
+end
+```
+
+### to
+
 ```ruby
 # test to verify Prawn was installed correctly
 class HelloReport < Prawn::Document
   def to_pdf
     text "Hello world"
-    (render).force_encoding('utf-8')
+    (render).force_encoding('utf-8')      # <<<
   end
 end
 ```
