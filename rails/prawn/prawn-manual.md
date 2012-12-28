@@ -3,8 +3,8 @@ Prawn Manual
 
 Please refer to the directions on the Prawn site.  If you encounter issues, see my notes below for one possible solution.
 
-* [Generate the Prawn user manual](https://github.com/prawnpdf/prawn#manual)
-* [Using Prawn in Rails 3+ (a little out of date, but workable)](https://github.com/prawnpdf/prawn/wiki/Using-Prawn-in-Rails-3)
+1. [Generate the Prawn user manual](https://github.com/prawnpdf/prawn#manual)
+2. [Using Prawn in Rails 3+ (a little out of date, but workable)](https://github.com/prawnpdf/prawn/wiki/Using-Prawn-in-Rails-3)
 
 
 Problems? One possible solution
