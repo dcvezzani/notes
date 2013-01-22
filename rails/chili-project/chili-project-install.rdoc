@@ -8,9 +8,9 @@ The only hiccup in my installation attempts dealt with installing the rmagick ge
 
 === Highlights
 
-# install imagemagick first
-# use Homebrew
-# use a version of imagemagick that is less than '6.8.0'
+1. install imagemagick first
+2. use Homebrew
+3. use a version of imagemagick that is less than '6.8.0'
 
 === Details
 
