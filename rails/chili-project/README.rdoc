@@ -1,0 +1,93 @@
+== Chili Project (previously Redmine) Installation
+
+I am using Ruby 1.9.3 on a iMac, OS X (Moutain Lion).  ChiliProject is a project management tool that is open-source and free.  ChiliProject's demo site didn't seem to be available at the time I tried to check it out, so I decided to install it locally and check it out.
+
+Official installation instructions -- https://www.chiliproject.org/projects/chiliproject/wiki/Installation
+
+The only hiccup in my installation attempts dealt with installing the rmagick gem (which is an optional component of the ChiliProject tool).  I resolved my issues thanks to findings on the Internet.
+
+=== Highlights
+
+1. install imagemagick first
+2. use Homebrew
+3. use a version of imagemagick that is less than '6.8.0'
+
+=== Details
+
+I don't drink, but thank goodness for Homebrew!
+
+Homebrew is the way to go when installing imagemagick; the following steps assume you have already installed homebrew.
+It should be easy enough to install with all the documentation available for homebrew.
+
+E.g., http://www.manas.com.ar/mverzilli/2010/05/19/install-the-rmagick-gem-in-the-painless-way-with-homebrewinstall-the-rmagick-gem-in-the-painless-way-with-homebrewinstall-the-rmagick-gem-in-the-painless-way-with-homebrewinstall-the-rmagick-gem-in/
+
+  cd /usr/local
+
+  # make sure all is up-to-date and well with homebrew
+  brew update
+  brew doctor
+
+  brew install ghostscript
+
+  # just in case it was already installed and is not version '6.7.0'; you may skip this step if it is already installed
+  # http://stackoverflow.com/questions/4290759/error-installing-rmagick-on-mac-os-x
+  brew uninstall imagemagick
+
+  # find a version of imagemagick that is < '6.8.0'
+  # e.g., 
+  git checkout 834ce4a /usr/local/Library/Formula/imagemagick.rb
+
+  brew install imagemagick --disable-openmp
+
+  # did imagemagick install?  It uses the executable, 'convert'
+  convert --version
+
+  # finally!...
+  gem install rmagic
+
+  # checkout ChiliProject and create your own personal branch
+  cd ~/rails-app
+  git clone git://github.com/chiliproject/chiliproject.git
+  cd ~/rails-app/chiliproject
+  git checkout -b my-stable origin/stable
+
+
+  # update database.yml
+
+  # create database (PostgreSql)
+  CREATE ROLE chiliproject LOGIN ENCRYPTED PASSWORD '<password>' NOINHERIT VALID UNTIL 'infinity';
+  CREATE DATABASE chiliproject WITH ENCODING='UTF8' OWNER=chiliproject;
+  CREATE DATABASE chiliproject_test WITH ENCODING='UTF8' OWNER=rails;
+
+
+  # create 'start' and 'open' scripts for convenience
+ 
+  # open local web server home page in browser
+  echo -e "open http://localhost:3682" > open.sh
+  chmod 755 open.sh
+
+  # start the web server
+  echo -e "#GMAIL_USERNAME=asdf GMAIL_PASSWORD=asdf RAILS_ENV=development bundle exec rails s -p 3682\nRAILS_ENV=development bundle exec rails s -p 3682" > start.sh
+  chmod 755 start.sh
+
+  echo -e "development:\n  adapter: postgresql\n  database: chiliproject\n  username: chiliproject\n  password: <password>\n  encoding: utf8\n  pool: 5\n\n# Warning: The database defined as "test" will be erased and\n# re-generated from your development database when you run "rake".\n# Do not set this db to the same as development or production.\n\ntest:\n  adapter: postgresql\n  database: chiliproject_test\n  username: rails\n  password: <password>\n  encoding: utf8\n  pool: 5" > config/database.yml
+
+
+  # run migrations
+  bundle exec rake db:migrate
+
+  # this is very useful in getting things set up
+  bundle exec rake redmine:load_default_data
+
+
+  # file permissions (for saving attachments, etc.); this is probably more important on production server
+  mkdir -p tmp public/plugin_assets
+  #sudo chown -R chiliproject:chiliproject files log tmp public/plugin_assets
+  sudo chmod -R 755 files log tmp public/plugin_assets
+ 
+Default admin login, as stated in documentation (https://www.chiliproject.org/projects/chiliproject/wiki/Installation), is:
+
+  username: 'admin'
+  password: 'admin'
+
+
