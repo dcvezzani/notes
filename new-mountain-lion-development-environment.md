@@ -1,4 +1,5 @@
-=== System updates
+System updates
+====
 
 ```
 # install homebrew
@@ -12,7 +13,8 @@ brew install apple-gcc42
 ```
 
 
-=== RVM
+RVM
+====
 
 ```
 # install RVM
@@ -25,7 +27,8 @@ brew install apple-gcc42
 ```
 
 
-=== Github
+Github
+====
 
 ```
 # create an account if you don't already have one
@@ -37,7 +40,8 @@ ssh-keygen -t rsa -C "your_email@youremail.com"
 ```
 
 
-=== Heroku
+Heroku
+====
 
 ```
 # create an account if you don't already have one
@@ -46,7 +50,8 @@ ssh-keygen -t rsa -C "your_email@youremail.com"
 ```
 
 
-=== PostgreSQL
+PostgreSQL
+====
 
 ```
 # install using homebrew
@@ -102,7 +107,9 @@ launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.postgres.plist
 ```
 
 
-=== Rubygems update
+Rubygems update
+====
+
 ```
 # it may be necessary to install some gems manually instead of through Bundler
 # http://stackoverflow.com/questions/13108299/error-installing-debugger-linecache-error-failed-to-build-gem-native-extension
@@ -110,7 +117,8 @@ gem install debugger-linecache -v '1.1.2' -- --with-ruby-include=$rvm_path/src/r
 ```
 
 
-=== Get started
+Get started
+====
 
 ```
 # create or clone a Rails project
@@ -148,7 +156,8 @@ open http://localhost:<rails-app-port>
 ```
 
 
-=== Developer Pluses
+Developer Pluses
+====
 
 ```
 # bash autocomplete
