@@ -90,7 +90,7 @@ unix_socket_directory = '/var/pgsql_socket'    # dont worry if yours is differen
 unix_socket_permissions = 0777                 # check this one
 ```
 
-tweak PostgreSQL configuration
+test PostgreSQL and further configuration
 =====
 
 Don't put PostreSQL auto-launcher in the LaunchAgents directory until you have tested 
