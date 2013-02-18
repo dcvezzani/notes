@@ -1,12 +1,16 @@
 System updates
 ====
 
+* http://mxcl.github.com/homebrew/
+
 ```
 # install homebrew
-# http://mxcl.github.com/homebrew/
+```
 
+* https://gist.github.com/zenkay/3237860
+
+```
 # install Ruby-compatible gcc compiler
-# https://gist.github.com/zenkay/3237860
 brew update
 brew tap homebrew/dupes
 brew install apple-gcc42
@@ -56,11 +60,12 @@ PostgreSQL
 install using homebrew
 =====
 
+* http://www.mikeball.us/blog/setting-up-postgres-on-mac-osx-with-homebrew
+* http://russbrooks.com/2010/11/25/install-postgresql-9-on-os-x
+* http://www.cyberciti.biz/faq/postgresql-remote-access-or-connection/
+* http://www.sd-kyber.com/library/onlineNotes/psqlOSX.html
+
 ```
-# http://www.mikeball.us/blog/setting-up-postgres-on-mac-osx-with-homebrew
-# http://russbrooks.com/2010/11/25/install-postgresql-9-on-os-x
-# http://www.cyberciti.biz/faq/postgresql-remote-access-or-connection/
-# http://www.sd-kyber.com/library/onlineNotes/psqlOSX.html
 brew install postgresql
 ```
 
@@ -81,8 +86,9 @@ initdb /usr/local/var/postgres/data
 tweak PostgreSQL configuration
 =====
 
+* http://stackoverflow.com/questions/11980017/trying-to-setup-postgres-on-osx
+
 ```
-# http://stackoverflow.com/questions/11980017/trying-to-setup-postgres-on-osx
 # open your postgresql.conf file (e.g., /usr/local/var/postgres/postgresql.conf)
 # and edit accordingly
 unix_socket_directory = '/var/pgsql_socket'    # dont worry if yours is different
@@ -129,9 +135,10 @@ install the front-end, admin GUI
 Rubygems update
 ====
 
+* http://stackoverflow.com/questions/13108299/error-installing-debugger-linecache-error-failed-to-build-gem-native-extension
+
 ```
 # it may be necessary to install some gems manually instead of through Bundler
-# http://stackoverflow.com/questions/13108299/error-installing-debugger-linecache-error-failed-to-build-gem-native-extension
 gem install debugger-linecache -v '1.1.2' -- --with-ruby-include=$rvm_path/src/ruby-1.9.3-p286/
 ```
 
@@ -178,8 +185,11 @@ open http://localhost:<rails-app-port>
 Developer Pluses
 ====
 
+* https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion
+
 ```
 # bash autocomplete
+brew install git bash-completion
 
 # MacVim
 # Vim plug-ins
