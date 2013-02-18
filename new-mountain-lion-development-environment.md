@@ -53,18 +53,21 @@ Heroku
 PostgreSQL
 ====
 
+install using homebrew
+=====
+
 ```
-# install using homebrew
 # http://www.mikeball.us/blog/setting-up-postgres-on-mac-osx-with-homebrew
 # http://russbrooks.com/2010/11/25/install-postgresql-9-on-os-x
 # http://www.cyberciti.biz/faq/postgresql-remote-access-or-connection/
 # http://www.sd-kyber.com/library/onlineNotes/psqlOSX.html
 brew install postgresql
+```
 
-# follow the directions printed out at the end of the homebrew installation
-# they will include the particular values on your computer that may or may not
-# match up with those listed in personal blogs on the Internet
-# those instructions should look similar to the 'www.mikeball.us' url listed above
+Follow the directions printed out at the end of the homebrew installation
+they will include the particular values on your computer that may or may not
+match up with those listed in personal blogs on the Internet
+those instructions should look similar to the 'www.mikeball.us' url listed above
 
 # make the directory where the default database will reside for PostgreSQL
 sudo mkdir -p /usr/local/var/postgres
@@ -73,16 +76,26 @@ sudo chown <your-username>:admin /usr/local/var/postgres/
 # initialize the default database
 initdb /usr/local/var/postgres/data
 
-# tweak PostgreSQL configuration
+tweak PostgreSQL configuration
+=====
+
+```
 # http://stackoverflow.com/questions/11980017/trying-to-setup-postgres-on-osx
 # open your postgresql.conf file (e.g., /usr/local/var/postgres/postgresql.conf)
 # and edit accordingly
 unix_socket_directory = '/var/pgsql_socket'    # dont worry if yours is different
 #unix_socket_group = ''                        # default is fine here
 unix_socket_permissions = 0777                 # check this one
+```
 
-# don't put PostreSQL auto-launcher in the LaunchAgents directory until you have tested 
-# that the PostgreSQL server starts up and runs successfully
+tweak PostgreSQL configuration
+=====
+
+Don't put PostreSQL auto-launcher in the LaunchAgents directory until you have tested 
+that the PostgreSQL server starts up and runs successfully
+
+```
+# manually start the server
 pg_ctl -D /usr/local/var/postgres/data -l /usr/local/var/postgres/data/server.log start
 
 # verify the server is running
@@ -96,15 +109,19 @@ pg_ctl -D /usr/local/var/postgres/data -l /usr/local/var/postgres/data/server.lo
 # configure PostreSQL to automatically start up when rebooting the computer
 cp /usr/local/Cellar/postgresql/9.1.4/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents
 launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.postgres.plist
-
-# troubleshooting
-# http://stackoverflow.com/questions/13119392/postgresql-could-not-connect-to-server
-# http://stackoverflow.com/questions/2370525/default-database-named-postgres-on-postgresql-server
-# http://alvinalexander.com/blog/post/postgresql/log-in-postgresql-database
-
-# install the front-end, admin GUI
-# http://www.crosstown.coolestguyplanettech.com/22-database/28-installing-postgresql-on-os-x-lion-107
 ```
+
+troubleshooting
+=====
+
+* http://stackoverflow.com/questions/13119392/postgresql-could-not-connect-to-server
+* http://stackoverflow.com/questions/2370525/default-database-named-postgres-on-postgresql-server
+* http://alvinalexander.com/blog/post/postgresql/log-in-postgresql-database
+
+install the front-end, admin GUI
+=====
+
+* http://www.crosstown.coolestguyplanettech.com/22-database/28-installing-postgresql-on-os-x-lion-107
 
 
 Rubygems update
