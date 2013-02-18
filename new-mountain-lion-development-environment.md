@@ -69,12 +69,14 @@ they will include the particular values on your computer that may or may not
 match up with those listed in personal blogs on the Internet
 those instructions should look similar to the 'www.mikeball.us' url listed above
 
+```
 # make the directory where the default database will reside for PostgreSQL
 sudo mkdir -p /usr/local/var/postgres
 sudo chown <your-username>:admin /usr/local/var/postgres/
 
 # initialize the default database
 initdb /usr/local/var/postgres/data
+```
 
 tweak PostgreSQL configuration
 =====
