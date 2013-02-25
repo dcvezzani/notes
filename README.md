@@ -3,7 +3,7 @@ notes
 
 General development discoveries I've stumbled upon
 
-* [Rails](/dcvezzani/notes/tree/master/rails)
-  * [Prawn](/dcvezzani/notes/tree/master/rails/prawn)
-  * [ChiliProject](/dcvezzani/notes/tree/master/rails/chili-project)
+* [Rails](/rails)
+  * [Prawn](/rails/prawn)
+  * [ChiliProject](/rails/chili-project)
 
