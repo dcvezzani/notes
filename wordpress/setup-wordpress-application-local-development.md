@@ -1,5 +1,5 @@
 install MySql on OSX (Mountain Lion)
-##################################################################
+==================================================================
 
 1. brew install mysql on mac os
 1. set a password for 'root' mysql user (http://stackoverflow.com/questions/4359131/brew-install-mysql-on-mac-os)
@@ -10,13 +10,13 @@ phpMyAdmin will require a password be used to log in (http://askubuntu.com/quest
 
 
 install phpMyAdmin on OSX (Mountain Lion)
-##################################################################
+==================================================================
 
 Installing phpMyAdmin on Mac OSX 10.8 Mountain Lion & 10.7, 10.6 (http://www.coolestguyplanettech.com/installing-phpmyadmin-on-mac-osx-10-7-lion/)
 
 
 create a database and username for the new application
-##################################################################
+==================================================================
 
 Store some environment variables; what's the name of your site?
 
@@ -60,7 +60,7 @@ sudo mysql -uwp_${my_site}_adm -p
 
 
 create new (blank) wordpress application
-##################################################################
+==================================================================
 
 Using supplied config/environments/development.php
 
@@ -80,7 +80,7 @@ open http://${my_site}.wordpress.dev
 
 
 archive
-##################################################################
+==================================================================
 
 ```
 # general mysql queries from the command line
