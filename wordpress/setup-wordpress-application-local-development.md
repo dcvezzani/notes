@@ -61,6 +61,26 @@ sudo mysql -uwp_${my_site}_adm -p
 create new (blank) wordpress application
 ==================================================================
 
+The breakdown.
+
+```
+mkdir $my_site 
+
+cd $my_site 
+
+curl -L get.wbp.io | sh 
+
+sh -c "echo \"<?php\n\\\$dev_server = preg_replace('/:.*/',\\\"\\\", \\\$_SERVER['HTTP_HOST']);\n\ndefine('WP_SITEURL', \\\"http://\\\$dev_server\\\");\ndefine('WP_HOME', \\\"http://\\\$dev_server\\\");\n\n\\\$WP_ENVIRONMENT = array(\n  'db_name' => 'wp_${my_site}',\n  'db_user' => 'wp_${my_site}_adm',\n  'db_password' => '${my_db_password}',\n  'db_host' => 'localhost',\n  'wp_lang' => '',\n  'wp_debug' => true,\n  'name' => 'development'\n);\n?>\" > config/environments/development.php" 
+
+sh -c "echo \"<virtualhost *:80>\n ServerName ${my_site}.wordpress.dev\n ServerAlias www.${my_site}.wordpress.dev\n DocumentRoot \\\"/Users/davidvezzani/Sites/wordpress/${my_site}\\\"\n\n <directory \\\"/Users/davidvezzani/Sites/wordpress/${my_site}\\\">\n  Options Indexes FollowSymLinks\n  AllowOverride All\n  Order allow,deny\n  Allow from all\n </directory>\n</virtualhost>\" > ../conf/${my_site}.conf" 
+
+sudo sh -c "echo \"\n127.0.0.1 ${my_site}.wordpress.dev\n127.0.0.1 www.${my_site}.wordpress.dev\" >> /private/etc/hosts" 
+
+sudo apachectl graceful 
+
+mvim config/environments/development.php
+```
+
 Using supplied config/environments/development.php
 
 ```
