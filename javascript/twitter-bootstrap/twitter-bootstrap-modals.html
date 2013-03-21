@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+
+  <script src="jquery-1.9.1.min.js" type="text/javascript"></script>
+  <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+
+</head>
+<body>
+  
+    <!-- Button to trigger modal -->
+    <a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+     
+    <!-- Modal -->
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+    </div>
+    <div class="modal-body">
+    <p>One fine body…</p>
+    <p>Close modal using <a href="#" id="open-sesame-close">JQuery</a></p>
+    </div>
+    <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+    </div>
+    </div>
+
+    <p>Open modal using <a href="#" id="open-sesame">JQuery</a></p>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+        $("#open-sesame").click(function(){
+          $("#myModal").modal("show");
+        });
+
+        $("#open-sesame-close").click(function(){
+          $("#myModal").modal("hide");
+        });
+
+        $('#myModal').on('hide', function () {
+          alert("Gotta go; it was nice seeing you!");
+        })
+
+        $('#myModal').on('hidden', function () {
+          alert("I'm already gone!");
+        })
+
+      });
+    </script>
+
+
+    <!-- Modal-2 -->
+    <div id="myModal-2" class="modal hide fade">
+    <div class="modal-body">
+    <p>Hello, world!</p>
+    <p>Close modal-2 using <a href="#" id="open-sesame-close-2">JQuery</a></p>
+    </div>
+    </div>
+
+    <p>Open modal-2 using <a href="#" id="open-sesame-2">JQuery</a></p>
+    
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+        // register the modal with JS since we aren't using the HTML conventions
+        $('#myModal-2').modal({show: false})
+
+        $("#open-sesame-2").click(function(){
+          $("#myModal-2").modal("show");
+        });
+
+        $("#open-sesame-close-2").click(function(){
+          $("#myModal-2").modal("hide");
+        });
+
+      });
+    </script>
+    
+</body>
+</html>
